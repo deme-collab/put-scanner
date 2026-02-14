@@ -10,11 +10,13 @@
 :root{--bg:#06090f;--bg2:#0c1119;--bg3:#111827;--bdr:#1b2540;--t1:#e8ecf4;--t2:#94a3b8;--t3:#5a6a85;--grn:#22c55e;--gA:rgba(34,197,94,.12);--red:#ef4444;--rA:rgba(239,68,68,.1);--amb:#eab308;--aA:rgba(234,179,8,.1);--blu:#3b82f6;--bA:rgba(59,130,246,.1);--pur:#a78bfa;--mono:'JetBrains Mono',monospace;--sans:'Outfit',system-ui,sans-serif}
 body{background:var(--bg);color:var(--t1);font-family:var(--sans);min-height:100vh}
 body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(59,130,246,.04),transparent),radial-gradient(ellipse 60% 40% at 80% 110%,rgba(34,197,94,.03),transparent);pointer-events:none}
-#R{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:20px 16px 80px}
+#root{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:20px 16px 80px}
+
 .hdr{display:flex;align-items:center;gap:14px;padding:12px 0 20px;border-bottom:1px solid var(--bdr)}
 .hdr h1{font-family:var(--mono);font-size:1.15rem;font-weight:600;letter-spacing:-.3px}
 .hdr h1 b{color:var(--grn);font-weight:700}
-.hdr .tg0{font-family:var(--mono);font-size:.6rem;background:var(--bg3);border:1px solid var(--bdr);border-radius:4px;padding:3px 8px;color:var(--t3);letter-spacing:.8px;text-transform:uppercase}
+.hdr .tag0{font-family:var(--mono);font-size:.6rem;background:var(--bg3);border:1px solid var(--bdr);border-radius:4px;padding:3px 8px;color:var(--t3);letter-spacing:.8px;text-transform:uppercase}
+
 .inp{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:20px;margin:20px 0}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:end}
 .fld{flex:1;min-width:90px}
@@ -29,6 +31,7 @@ body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse
 .pre{background:var(--bg);border:1px solid var(--bdr);border-radius:5px;padding:5px 12px;font-family:var(--mono);font-size:.68rem;color:var(--t2);cursor:pointer;transition:all .12s}
 .pre:hover{border-color:var(--blu);color:var(--t1)}
 .pre.neg{border-color:rgba(239,68,68,.2);color:var(--red)}.pre.neg:hover{border-color:var(--red)}
+
 @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .vrd{border-radius:10px;padding:18px 24px;margin-bottom:20px;display:flex;align-items:center;gap:18px;border:1px solid;animation:fi .3s ease}
 .vrd.s{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(34,197,94,.01));border-color:rgba(34,197,94,.2)}
@@ -36,24 +39,28 @@ body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse
 .vrd.x{background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(239,68,68,.01));border-color:rgba(239,68,68,.2)}
 .vrd .ic{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .vrd.s .ic{background:var(--gA)}.vrd.h .ic{background:var(--aA)}.vrd.x .ic{background:var(--rA)}
-.vrd .tx{flex:1;min-width:0}.vrd .tx h2{font-family:var(--mono);font-size:.95rem;font-weight:600;margin-bottom:2px}
+.vrd .tx{flex:1;min-width:0}
+.vrd .tx h2{font-family:var(--mono);font-size:.95rem;font-weight:600;margin-bottom:2px}
 .vrd .tx p{font-size:.78rem;color:var(--t2);line-height:1.5}
 .vrd .sc{text-align:center;flex-shrink:0}
 .vrd .sc .n{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1}
 .vrd.s .sc .n{color:var(--grn)}.vrd.h .sc .n{color:var(--amb)}.vrd.x .sc .n{color:var(--red)}
 .vrd .sc .l{font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--t3)}
+
 .cg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
 @media(max-width:700px){.cg{grid-template-columns:1fr 1fr}}
 .cd{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:16px 18px;animation:fi .3s ease}
 .cd .ch{font-family:var(--mono);font-size:.55rem;font-weight:500;text-transform:uppercase;letter-spacing:1.4px;color:var(--t3);margin-bottom:10px}
 .cd .cv{font-family:var(--mono);font-size:1.45rem;font-weight:700;margin-bottom:3px}
 .cd .cs{font-size:.7rem;color:var(--t2);font-family:var(--mono);font-weight:300}
+
 .gs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
 @media(max-width:600px){.gs{grid-template-columns:repeat(3,1fr)}}
 .gk{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:14px;text-align:center}
 .gk .sy{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--t3);margin-bottom:6px}
 .gk .gv{font-family:var(--mono);font-size:1.15rem;font-weight:600}
 .gk .gn{font-size:.55rem;color:var(--t3);font-family:var(--mono);margin-top:3px}
+
 .sb{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:20px;margin-bottom:20px}
 .sb h3{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--t3);margin-bottom:16px}
 .br{display:flex;align-items:center;margin-bottom:10px;gap:10px}
@@ -61,6 +68,7 @@ body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse
 .br .tk{flex:1;height:6px;background:rgba(255,255,255,.03);border-radius:3px;overflow:hidden}
 .br .fl{height:100%;border-radius:3px;transition:width .5s ease}
 .br .pt{font-family:var(--mono);font-size:.7rem;font-weight:600;width:48px;text-align:right;flex-shrink:0}
+
 .sl{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:20px;overflow-x:auto}
 .sl h3{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--t3);margin-bottom:14px}
 table{width:100%;border-collapse:collapse;min-width:580px}
@@ -72,6 +80,7 @@ tr.sel{background:rgba(59,130,246,.07)}tr.sel td{color:var(--t1);font-weight:500
 tr:hover{background:rgba(255,255,255,.015)}
 .tg{display:inline-block;font-family:var(--mono);font-size:.52rem;font-weight:600;padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:.3px}
 .tg-g{background:var(--gA);color:var(--grn)}.tg-a{background:var(--aA);color:var(--amb)}.tg-r{background:var(--rA);color:var(--red)}
+
 .emp{text-align:center;padding:70px 20px;color:var(--t3)}
 .emp .i{font-size:40px;margin-bottom:14px;opacity:.4}
 .emp h2{font-family:var(--mono);font-size:.93rem;font-weight:500;color:var(--t2);margin-bottom:6px}
@@ -79,125 +88,334 @@ tr:hover{background:rgba(255,255,255,.015)}
 </style>
 </head>
 <body>
-<div id="R"></div>
+<div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script>
-// ── BLACK-SCHOLES ─────────────────────────────────────────
-function NC(x){var a1=.254829592,a2=-.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=.3275911,s=x<0?-1:1;x=Math.abs(x)/1.4142135623730951;var t=1/(1+p*x);return .5*(1+s*(1-(((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-x*x)))}
-function NP(x){return Math.exp(-.5*x*x)/2.5066282746310002}
-function D12(S,K,T,r,s){if(T<=0||s<=0)return[0,0];var q=Math.sqrt(T),d1=(Math.log(S/K)+(r+.5*s*s)*T)/(s*q);return[d1,d1-s*q]}
-function bsP(S,K,T,r,s){if(T<=0||s<=0)return Math.max(K-S,0);var d=D12(S,K,T,r,s);return K*Math.exp(-r*T)*NC(-d[1])-S*NC(-d[0])}
-function bsD(S,K,T,r,s){if(T<=0||s<=0)return S<K?-1:0;return NC(D12(S,K,T,r,s)[0])-1}
-function bsG(S,K,T,r,s){if(T<=0||s<=0||S<=0)return 0;return NP(D12(S,K,T,r,s)[0])/(S*s*Math.sqrt(T))}
-function bsT(S,K,T,r,s){if(T<=0||s<=0)return 0;var d=D12(S,K,T,r,s);return(-(S*NP(d[0])*s)/(2*Math.sqrt(T))+r*K*Math.exp(-r*T)*NC(-d[1]))/365}
-function bsV(S,K,T,r,s){if(T<=0||s<=0)return 0;return S*NP(D12(S,K,T,r,s)[0])*Math.sqrt(T)/100}
-function gks(S,K,T,r,iv){return{price:bsP(S,K,T,r,iv),delta:bsD(S,K,T,r,iv),gamma:bsG(S,K,T,r,iv),theta:bsT(S,K,T,r,iv),vega:bsV(S,K,T,r,iv)}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+<script type="text/babel">
+const { useState, useCallback } = React;
 
-function score(S,K,dte,iv,r,vix,chg){
-  var T=dte/365,g=gks(S,K,T,r,iv);if(vix>=35)return{sc:0,g:g,ann:0,bd:{}};
-  var sc=0,rg=vix<15?20:vix<20?17:vix<25?12:vix<28?6:2;sc+=rg;
-  var dd=Math.abs(Math.abs(g.delta)-.2),dp=dd<.02?18:dd<.04?14:dd<.06?10:dd<.1?5:1;sc+=dp;
-  var ann=g.price/K*(365/Math.max(dte,1)),pp=ann>=.08&&ann<=.15?14:ann>=.06&&ann<=.25?10:ann<.06?3:ann<=.35?6:0;sc+=pp;
-  var dist=(S-K)/S,dsp=dist>=.05&&dist<=.1?14:dist>.1&&dist<=.15?10:dist>=.03&&dist<.05?6:dist<.03?0:5;sc+=dsp;
-  var td=Math.abs(g.theta),tp=td>.05?12:td>.03?9:td>.01?5:2;sc+=tp;
-  var di=chg<-2?16:chg<-1?13:chg<-.5?10:chg<0?5:chg<.5?2:chg<1.5?-2:-8;sc+=di;
-  var gp=dte<14?-6:dte<21?-3:0;sc+=gp;
-  return{sc:Math.max(Math.min(Math.round(sc),100),0),g:g,ann:ann,bd:{regime:rg,delta:dp,premium:pp,distance:dsp,theta:tp,dip:Math.max(di,0),gamma:gp}}}
+/* ── BLACK-SCHOLES ENGINE ────────────────────────────────── */
+function NC(x) {
+  const a1=.254829592,a2=-.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=.3275911;
+  const s = x < 0 ? -1 : 1;
+  x = Math.abs(x) / Math.SQRT2;
+  const t = 1 / (1 + p * x);
+  const y = 1 - (((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-x*x);
+  return 0.5 * (1 + s * y);
+}
+function NP(x) { return Math.exp(-0.5*x*x) / Math.sqrt(2*Math.PI); }
+function D12(S,K,T,r,s) {
+  if (T<=0||s<=0) return [0,0];
+  const q=Math.sqrt(T), d1=(Math.log(S/K)+(r+0.5*s*s)*T)/(s*q);
+  return [d1, d1 - s*q];
+}
+function bsP(S,K,T,r,s) { if(T<=0||s<=0) return Math.max(K-S,0); const d=D12(S,K,T,r,s); return K*Math.exp(-r*T)*NC(-d[1]) - S*NC(-d[0]); }
+function bsD(S,K,T,r,s) { if(T<=0||s<=0) return S<K?-1:0; return NC(D12(S,K,T,r,s)[0])-1; }
+function bsG(S,K,T,r,s) { if(T<=0||s<=0||S<=0) return 0; return NP(D12(S,K,T,r,s)[0])/(S*s*Math.sqrt(T)); }
+function bsT(S,K,T,r,s) { if(T<=0||s<=0) return 0; const d=D12(S,K,T,r,s); return(-(S*NP(d[0])*s)/(2*Math.sqrt(T))+r*K*Math.exp(-r*T)*NC(-d[1]))/365; }
+function bsV(S,K,T,r,s) { if(T<=0||s<=0) return 0; return S*NP(D12(S,K,T,r,s)[0])*Math.sqrt(T)/100; }
+function calcGreeks(S,K,T,r,iv) { return { price:bsP(S,K,T,r,iv), delta:bsD(S,K,T,r,iv), gamma:bsG(S,K,T,r,iv), theta:bsT(S,K,T,r,iv), vega:bsV(S,K,T,r,iv) }; }
 
-function ladder(S,dte,iv,r,vix,chg){
-  var rows=[],step=S>400?5:S>100?2.5:S>50?1:.5,seen={};
-  for(var p=.02;p<=.16;p+=.005){
-    var K=Math.round(S*(1-p)/step)*step;if(K<=0||seen[K])continue;seen[K]=1;
-    var T=dte/365,g=gks(S,K,T,r,iv);if(Math.abs(g.delta)<.05||Math.abs(g.delta)>.45)continue;
-    var res=score(S,K,dte,iv,r,vix,chg);
-    rows.push({K:K,delta:g.delta,gamma:g.gamma,theta:g.theta,vega:g.vega,prem:g.price,dist:(S-K)/S*100,ann:g.price/K*(365/dte)*100,sc:res.sc})}
-  return rows.sort(function(a,b){return b.sc-a.sc})}
+/* ── SCORING ENGINE ──────────────────────────────────────── */
+function scoreContract(S, K, dte, iv, r, vix, chg) {
+  const T = dte / 365;
+  const g = calcGreeks(S, K, T, r, iv);
+  if (vix >= 35) return { sc: 0, g, ann: 0, bd: {} };
+  let sc = 0;
 
-// ── REACT APP ─────────────────────────────────────────────
-var h=React.createElement,uS=React.useState,uC=React.useCallback;
+  const regime = vix<15?20 : vix<20?17 : vix<25?12 : vix<28?6 : 2;
+  sc += regime;
 
-function App(){
-  var _f=uS({ticker:'',price:'',strike:'',iv:'',dte:'35',vix:'18',chg:'-0.5'}),f=_f[0],sF=_f[1];
-  var _a=uS(null),a=_a[0],sA=_a[1];
-  function set(k,v){sF(function(p){var n={};for(var x in p)n[x]=p[x];n[k]=v;return n})}
-  function load(t,p,k,i,d,v,c){sF({ticker:t,price:p,strike:k,iv:i,dte:d,vix:v,chg:c})}
-  function run(){
-    var S=+f.price,K=+f.strike,IV=+f.iv/100,DTE=+f.dte,VIX=+f.vix,CHG=+f.chg,r=.045;
-    if(!S||!K||!IV||!DTE)return;
-    var res=score(S,K,DTE,IV,r,VIX,CHG),ld=ladder(S,DTE,IV,r,VIX,CHG);
-    sA({S:S,K:K,IV:IV,DTE:DTE,VIX:VIX,CHG:CHG,r:r,tk:f.ticker.toUpperCase()||'—',sc:res.sc,g:res.g,ann:res.ann,bd:res.bd,ld:ld})}
-  function kd(e){if(e.key==='Enter')run()}
-  function field(label,key,ph,unit){
-    return h('div',{className:'fld'},h('label',null,label),h('input',{type:'number',step:'any',value:f[key],placeholder:ph,onChange:function(e){set(key,e.target.value)},onKeyDown:kd}),unit?h('div',{className:'u'},unit):null)}
-  function preset(label,cls,t,p,k,i,d,v,c){
-    return h('button',{className:'pre'+(cls?' '+cls:''),onClick:function(){load(t,p,k,i,d,v,c)}},label)}
+  const dd = Math.abs(Math.abs(g.delta) - 0.2);
+  const delta = dd<.02?18 : dd<.04?14 : dd<.06?10 : dd<.1?5 : 1;
+  sc += delta;
 
-  var v=a?a.sc>=70?'s':a.sc>=45?'h':'x':null;
+  const ann = (g.price / K) * (365 / Math.max(dte, 1));
+  const premium = (ann>=.08 && ann<=.15)?14 : (ann>=.06 && ann<=.25)?10 : ann<.06?3 : ann<=.35?6 : 0;
+  sc += premium;
 
-  return h('div',null,
-    h('div',{className:'hdr'},h('h1',null,h('b',null,'$'),' Put Scanner'),h('span',{className:'tg0'},'quiet powerhouse')),
-    h('div',{className:'inp'},
-      h('div',{className:'row'},
-        h('div',{className:'fld',style:{maxWidth:110}},h('label',null,'Ticker'),h('input',{value:f.ticker,placeholder:'AAPL',onChange:function(e){set('ticker',e.target.value)},onKeyDown:kd})),
-        field('Price','price','235.50','$'),
-        field('Strike','strike','225','$'),
-        field('IV','iv','22','%'),
-        field('DTE','dte','35','days'),
-        field('VIX','vix','18','level'),
-        field('Day Chg','chg','-0.5','%'),
-        h('button',{className:'go',onClick:run},'Scan')),
-      h('div',{className:'presets'},
-        preset('AAPL',null,'AAPL','235','225','22','35','18','-0.7'),
-        preset('MSFT',null,'MSFT','415','395','20','35','18','-0.5'),
-        preset('GOOGL',null,'GOOGL','182','172','26','35','18','-1.2'),
-        preset('SPY',null,'SPY','605','585','14','42','18','-0.3'),
-        preset('NVDA',null,'NVDA','130','120','38','35','22','2.1'),
-        preset('TSLA crash','neg','TSLA','340','300','48','35','32','-4.5'))),
-    !a&&h('div',{className:'emp'},h('div',{className:'i'},'⚡'),h('h2',null,'Punch in a contract'),h('p',null,'Enter the stock price, strike, and IV from your broker screen. Hit Enter or Scan.')),
-    a&&h('div',null,
-      h('div',{className:'vrd '+v},
-        h('div',{className:'ic'},v==='s'?'✅':v==='h'?'⏳':'🚫'),
-        h('div',{className:'tx'},
-          h('h2',null,v==='s'?'SELL '+a.tk+' $'+a.K+' PUT':v==='h'?'HOLD — '+a.tk+' $'+a.K+' needs better setup':'SKIP — '+a.tk+' $'+a.K+' not worth it'),
-          h('p',null,v==='s'?a.DTE+'d DTE · δ'+a.g.delta.toFixed(3)+' · $'+a.g.price.toFixed(2)+' prem · '+(a.ann*100).toFixed(1)+'% ann'+(a.CHG<-.5?' · dip entry ✨':''):v==='h'?'Score '+a.sc+'/100 borderline.'+(a.CHG>.5?' Wait for pullback.':'')+(Math.abs(a.g.delta)<.12?' Strike too far OTM.':''):'Score '+a.sc+'/100.'+(a.VIX>=28?' VIX elevated.':'')+(a.ann<.06?' Premium thin.':''))),
-        h('div',{className:'sc'},h('div',{className:'n'},a.sc),h('div',{className:'l'},'score'))),
-      h('div',{className:'cg'},
-        mc('Premium','$'+a.g.price.toFixed(2),'$'+(a.g.price*100).toFixed(0)+' / contract',a.g.price>1?'var(--grn)':null),
-        mc('Ann. Return',(a.ann*100).toFixed(1)+'%','on $'+(a.K*100).toLocaleString()+' secured',a.ann>=.08?'var(--grn)':a.ann>=.05?'var(--amb)':'var(--t3)'),
-        mc('Distance',((a.S-a.K)/a.S*100).toFixed(1)+'% OTM','break-even $'+(a.K-a.g.price).toFixed(2)),
-        mc('θ Decay','$'+Math.abs(a.g.theta).toFixed(4)+'/day','$'+(Math.abs(a.g.theta)*100).toFixed(2)+'/day/ct','var(--grn)'),
-        mc('Cash Req.','$'+(a.K*100).toLocaleString(),'to secure 1 contract'),
-        mc('Day Change',(a.CHG>0?'+':'')+a.CHG.toFixed(2)+'%',a.CHG<-1?'strong dip — prime entry':a.CHG<-.3?'red — favorable':a.CHG<.3?'flat':a.CHG<1.5?'green — weaker':'ripping — worst',a.CHG<0?'var(--red)':'var(--grn)')),
-      h('div',{className:'gs'},
-        gk2('Delta (Δ)',a.g.delta.toFixed(4),'≈'+Math.round(Math.abs(a.g.delta)*100)+'% assign','var(--blu)'),
-        gk2('Gamma (Γ)',a.g.gamma.toFixed(5),a.g.gamma>.04?'high — danger':a.g.gamma>.02?'moderate':'low — stable',a.g.gamma>.03?'var(--amb)':null),
-        gk2('Theta (Θ)',a.g.theta.toFixed(4),'per share/day','var(--grn)'),
-        gk2('Vega (ν)',a.g.vega.toFixed(4),'per 1% IV move'),
-        gk2('IV',(a.IV*100).toFixed(1)+'%',a.IV>.4?'elevated':a.IV>.25?'above avg':'normal',a.IV>.35?'var(--amb)':null)),
-      h('div',{className:'sb'},
-        h('h3',null,'Score Breakdown'),
-        bar('Regime',a.bd.regime,20,'var(--blu)'),
-        bar('Delta',a.bd.delta,18,'var(--pur)'),
-        bar('Dip Entry',a.bd.dip,16,'var(--grn)'),
-        bar('Premium',a.bd.premium,14,'var(--amb)'),
-        bar('Distance',a.bd.distance,14,'var(--blu)'),
-        bar('Theta',a.bd.theta,12,'var(--grn)'),
-        a.bd.gamma<0?bar('Gamma Risk',a.bd.gamma,6,'var(--red)'):null),
-      a.ld.length>0&&h('div',{className:'sl'},
-        h('h3',null,'Strike Ladder — '+a.tk+' puts, '+a.DTE+'d'),
-        h('table',null,
-          h('thead',null,h('tr',null,['Strike','Delta','Premium','θ/Day','Dist %','Ann Ret','Score',''].map(function(c,i){return h('th',{key:i},c)}))),
-          h('tbody',null,a.ld.slice(0,14).map(function(r,i){return h('tr',{key:i,className:r.K===a.K?'sel':''},
-            h('td',null,'$'+r.K.toFixed(r.K%1?1:0)),h('td',null,r.delta.toFixed(3)),h('td',null,'$'+r.prem.toFixed(2)),h('td',null,'$'+Math.abs(r.theta).toFixed(4)),h('td',null,r.dist.toFixed(1)+'%'),h('td',null,r.ann.toFixed(1)+'%'),
-            h('td',{style:{fontWeight:600,color:r.sc>=70?'var(--grn)':r.sc>=45?'var(--amb)':'var(--t3)'}},r.sc),
-            h('td',null,h('span',{className:'tg '+(r.sc>=70?'tg-g':r.sc>=45?'tg-a':'tg-r')},r.sc>=70?'sell':r.sc>=45?'hold':'skip')))})))))))}
+  const dist = (S - K) / S;
+  const distance = (dist>=.05 && dist<=.1)?14 : (dist>.1 && dist<=.15)?10 : (dist>=.03 && dist<.05)?6 : dist<.03?0 : 5;
+  sc += distance;
 
-function mc(hd,vl,sub,clr){return h('div',{className:'cd'},h('div',{className:'ch'},hd),h('div',{className:'cv',style:clr?{color:clr}:null},vl),h('div',{className:'cs'},sub))}
-function gk2(sy,vl,nt,clr){return h('div',{className:'gk'},h('div',{className:'sy'},sy),h('div',{className:'gv',style:clr?{color:clr}:null},vl),h('div',{className:'gn'},nt))}
-function bar(lb,pts,mx,clr){return h('div',{className:'br'},h('div',{className:'lb'},lb),h('div',{className:'tk'},h('div',{className:'fl',style:{width:Math.max(pts/mx*100,0)+'%',background:clr,opacity:.8}})),h('div',{className:'pt',style:{color:pts<0?'var(--red)':clr}},(pts>0?'+':'')+pts+'/'+mx))}
+  const td = Math.abs(g.theta);
+  const theta = td>.05?12 : td>.03?9 : td>.01?5 : 2;
+  sc += theta;
 
-ReactDOM.render(h(App),document.getElementById('R'));
+  const rawDip = chg<-2?16 : chg<-1?13 : chg<-.5?10 : chg<0?5 : chg<.5?2 : chg<1.5?-2 : -8;
+  sc += rawDip;
+
+  const gamma = dte<14?-6 : dte<21?-3 : 0;
+  sc += gamma;
+
+  return {
+    sc: Math.max(Math.min(Math.round(sc), 100), 0),
+    g, ann,
+    bd: { regime, delta, premium, distance, theta, dip: Math.max(rawDip, 0), gamma }
+  };
+}
+
+/* ── STRIKE LADDER ───────────────────────────────────────── */
+function buildLadder(S, dte, iv, r, vix, chg) {
+  const rows = [];
+  const step = S>400?5 : S>100?2.5 : S>50?1 : 0.5;
+  const seen = {};
+  for (let p = 0.02; p <= 0.16; p += 0.005) {
+    const K = Math.round(S * (1 - p) / step) * step;
+    if (K <= 0 || seen[K]) continue;
+    seen[K] = true;
+    const T = dte / 365;
+    const g = calcGreeks(S, K, T, r, iv);
+    if (Math.abs(g.delta) < 0.05 || Math.abs(g.delta) > 0.45) continue;
+    const res = scoreContract(S, K, dte, iv, r, vix, chg);
+    rows.push({
+      K, delta: g.delta, gamma: g.gamma, theta: g.theta, vega: g.vega,
+      prem: g.price, dist: (S-K)/S*100, ann: (g.price/K)*(365/dte)*100, sc: res.sc
+    });
+  }
+  return rows.sort((a, b) => b.sc - a.sc);
+}
+
+/* ── HELPER COMPONENTS ───────────────────────────────────── */
+function MetricCard({ hd, val, sub, clr }) {
+  return (
+    <div className="cd">
+      <div className="ch">{hd}</div>
+      <div className="cv" style={clr ? {color: clr} : undefined}>{val}</div>
+      <div className="cs">{sub}</div>
+    </div>
+  );
+}
+
+function GreekCard({ sym, val, note, clr }) {
+  return (
+    <div className="gk">
+      <div className="sy">{sym}</div>
+      <div className="gv" style={clr ? {color: clr} : undefined}>{val}</div>
+      <div className="gn">{note}</div>
+    </div>
+  );
+}
+
+function ScoreBar({ label, pts, max, color }) {
+  return (
+    <div className="br">
+      <div className="lb">{label}</div>
+      <div className="tk">
+        <div className="fl" style={{ width: `${Math.max(pts/max*100, 0)}%`, background: color, opacity: 0.8 }} />
+      </div>
+      <div className="pt" style={{ color: pts < 0 ? 'var(--red)' : color }}>
+        {pts > 0 ? '+' : ''}{pts}/{max}
+      </div>
+    </div>
+  );
+}
+
+/* ── MAIN APP ────────────────────────────────────────────── */
+function App() {
+  const [fields, setFields] = useState({
+    ticker: '', price: '', strike: '', iv: '', dte: '35', vix: '18', chg: '-0.5'
+  });
+  const [result, setResult] = useState(null);
+
+  const set = (k, v) => setFields(prev => ({ ...prev, [k]: v }));
+
+  const load = (t, p, k, i, d, v, c) => {
+    setFields({ ticker: t, price: p, strike: k, iv: i, dte: d, vix: v, chg: c });
+  };
+
+  const run = useCallback(() => {
+    const S = +fields.price, K = +fields.strike, IV = +fields.iv / 100;
+    const DTE = +fields.dte, VIX = +fields.vix, CHG = +fields.chg, r = 0.045;
+    if (!S || !K || !IV || !DTE) return;
+    const res = scoreContract(S, K, DTE, IV, r, VIX, CHG);
+    const ld = buildLadder(S, DTE, IV, r, VIX, CHG);
+    setResult({
+      S, K, IV, DTE, VIX, CHG, r,
+      tk: fields.ticker.toUpperCase() || '—',
+      ...res, ld
+    });
+  }, [fields]);
+
+  const kd = (e) => { if (e.key === 'Enter') run(); };
+
+  const a = result;
+  const v = a ? (a.sc >= 70 ? 's' : a.sc >= 45 ? 'h' : 'x') : null;
+
+  return (
+    <div>
+      {/* Header */}
+      <div className="hdr">
+        <h1><b>$</b> Put Scanner</h1>
+        <span className="tag0">quiet powerhouse</span>
+      </div>
+
+      {/* Input Panel */}
+      <div className="inp">
+        <div className="row">
+          <div className="fld" style={{ maxWidth: 110 }}>
+            <label>Ticker</label>
+            <input value={fields.ticker} placeholder="AAPL" onChange={e => set('ticker', e.target.value)} onKeyDown={kd} />
+          </div>
+          <div className="fld">
+            <label>Price</label>
+            <input type="number" step="any" value={fields.price} placeholder="235.50" onChange={e => set('price', e.target.value)} onKeyDown={kd} />
+            <div className="u">$</div>
+          </div>
+          <div className="fld">
+            <label>Strike</label>
+            <input type="number" step="any" value={fields.strike} placeholder="225" onChange={e => set('strike', e.target.value)} onKeyDown={kd} />
+            <div className="u">$</div>
+          </div>
+          <div className="fld">
+            <label>IV</label>
+            <input type="number" step="any" value={fields.iv} placeholder="22" onChange={e => set('iv', e.target.value)} onKeyDown={kd} />
+            <div className="u">%</div>
+          </div>
+          <div className="fld">
+            <label>DTE</label>
+            <input type="number" value={fields.dte} placeholder="35" onChange={e => set('dte', e.target.value)} onKeyDown={kd} />
+            <div className="u">days</div>
+          </div>
+          <div className="fld">
+            <label>VIX</label>
+            <input type="number" step="any" value={fields.vix} placeholder="18" onChange={e => set('vix', e.target.value)} onKeyDown={kd} />
+            <div className="u">level</div>
+          </div>
+          <div className="fld">
+            <label>Day Chg</label>
+            <input type="number" step="any" value={fields.chg} placeholder="-0.5" onChange={e => set('chg', e.target.value)} onKeyDown={kd} />
+            <div className="u">%</div>
+          </div>
+          <button className="go" onClick={run}>Scan</button>
+        </div>
+        <div className="presets">
+          <button className="pre" onClick={() => load('AAPL','235','225','22','35','18','-0.7')}>AAPL</button>
+          <button className="pre" onClick={() => load('MSFT','415','395','20','35','18','-0.5')}>MSFT</button>
+          <button className="pre" onClick={() => load('GOOGL','182','172','26','35','18','-1.2')}>GOOGL</button>
+          <button className="pre" onClick={() => load('SPY','605','585','14','42','18','-0.3')}>SPY</button>
+          <button className="pre" onClick={() => load('NVDA','130','120','38','35','22','2.1')}>NVDA</button>
+          <button className="pre neg" onClick={() => load('TSLA','340','300','48','35','32','-4.5')}>TSLA crash</button>
+        </div>
+      </div>
+
+      {/* Empty State */}
+      {!a && (
+        <div className="emp">
+          <div className="i">⚡</div>
+          <h2>Punch in a contract</h2>
+          <p>Enter the stock price, strike, and IV from your broker screen. Hit Enter or Scan.</p>
+        </div>
+      )}
+
+      {/* Results */}
+      {a && (
+        <div>
+          {/* Verdict Banner */}
+          <div className={`vrd ${v}`}>
+            <div className="ic">{v === 's' ? '✅' : v === 'h' ? '⏳' : '🚫'}</div>
+            <div className="tx">
+              <h2>
+                {v === 's' ? `SELL ${a.tk} $${a.K} PUT` :
+                 v === 'h' ? `HOLD — ${a.tk} $${a.K} needs better setup` :
+                 `SKIP — ${a.tk} $${a.K} not worth it`}
+              </h2>
+              <p>
+                {v === 's'
+                  ? `${a.DTE}d DTE · δ${a.g.delta.toFixed(3)} · $${a.g.price.toFixed(2)} prem · ${(a.ann*100).toFixed(1)}% ann${a.CHG < -0.5 ? ' · dip entry ✨' : ''}`
+                  : v === 'h'
+                  ? `Score ${a.sc}/100 borderline.${a.CHG > 0.5 ? ' Wait for pullback.' : ''}${Math.abs(a.g.delta) < 0.12 ? ' Strike too far OTM.' : ''}`
+                  : `Score ${a.sc}/100.${a.VIX >= 28 ? ' VIX elevated.' : ''}${a.ann < 0.06 ? ' Premium thin.' : ''}`}
+              </p>
+            </div>
+            <div className="sc">
+              <div className="n">{a.sc}</div>
+              <div className="l">score</div>
+            </div>
+          </div>
+
+          {/* Metric Cards */}
+          <div className="cg">
+            <MetricCard hd="Premium" val={`$${a.g.price.toFixed(2)}`} sub={`$${(a.g.price*100).toFixed(0)} / contract`} clr={a.g.price > 1 ? 'var(--grn)' : null} />
+            <MetricCard hd="Ann. Return" val={`${(a.ann*100).toFixed(1)}%`} sub={`on $${(a.K*100).toLocaleString()} secured`} clr={a.ann >= .08 ? 'var(--grn)' : a.ann >= .05 ? 'var(--amb)' : 'var(--t3)'} />
+            <MetricCard hd="Distance" val={`${((a.S-a.K)/a.S*100).toFixed(1)}% OTM`} sub={`break-even $${(a.K - a.g.price).toFixed(2)}`} />
+            <MetricCard hd="θ Decay" val={`$${Math.abs(a.g.theta).toFixed(4)}/day`} sub={`$${(Math.abs(a.g.theta)*100).toFixed(2)}/day/ct`} clr="var(--grn)" />
+            <MetricCard hd="Cash Req." val={`$${(a.K*100).toLocaleString()}`} sub="to secure 1 contract" />
+            <MetricCard
+              hd="Day Change"
+              val={`${a.CHG > 0 ? '+' : ''}${a.CHG.toFixed(2)}%`}
+              sub={a.CHG < -1 ? 'strong dip — prime entry' : a.CHG < -0.3 ? 'red — favorable' : a.CHG < 0.3 ? 'flat' : a.CHG < 1.5 ? 'green — weaker' : 'ripping — worst'}
+              clr={a.CHG < 0 ? 'var(--red)' : 'var(--grn)'}
+            />
+          </div>
+
+          {/* Greeks */}
+          <div className="gs">
+            <GreekCard sym="Delta (Δ)" val={a.g.delta.toFixed(4)} note={`≈${Math.round(Math.abs(a.g.delta)*100)}% assign`} clr="var(--blu)" />
+            <GreekCard sym="Gamma (Γ)" val={a.g.gamma.toFixed(5)} note={a.g.gamma > .04 ? 'high — danger' : a.g.gamma > .02 ? 'moderate' : 'low — stable'} clr={a.g.gamma > .03 ? 'var(--amb)' : null} />
+            <GreekCard sym="Theta (Θ)" val={a.g.theta.toFixed(4)} note="per share/day" clr="var(--grn)" />
+            <GreekCard sym="Vega (ν)" val={a.g.vega.toFixed(4)} note="per 1% IV move" />
+            <GreekCard sym="IV" val={`${(a.IV*100).toFixed(1)}%`} note={a.IV > .4 ? 'elevated' : a.IV > .25 ? 'above avg' : 'normal'} clr={a.IV > .35 ? 'var(--amb)' : null} />
+          </div>
+
+          {/* Score Breakdown */}
+          <div className="sb">
+            <h3>Score Breakdown</h3>
+            <ScoreBar label="Regime" pts={a.bd.regime} max={20} color="var(--blu)" />
+            <ScoreBar label="Delta" pts={a.bd.delta} max={18} color="var(--pur)" />
+            <ScoreBar label="Dip Entry" pts={a.bd.dip} max={16} color="var(--grn)" />
+            <ScoreBar label="Premium" pts={a.bd.premium} max={14} color="var(--amb)" />
+            <ScoreBar label="Distance" pts={a.bd.distance} max={14} color="var(--blu)" />
+            <ScoreBar label="Theta" pts={a.bd.theta} max={12} color="var(--grn)" />
+            {a.bd.gamma < 0 && <ScoreBar label="Gamma Risk" pts={a.bd.gamma} max={6} color="var(--red)" />}
+          </div>
+
+          {/* Strike Ladder */}
+          {a.ld.length > 0 && (
+            <div className="sl">
+              <h3>Strike Ladder — {a.tk} puts, {a.DTE}d</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th style={{textAlign:'left'}}>Strike</th>
+                    <th>Delta</th>
+                    <th>Premium</th>
+                    <th>θ/Day</th>
+                    <th>Dist %</th>
+                    <th>Ann Ret</th>
+                    <th>Score</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {a.ld.slice(0, 14).map((row, i) => (
+                    <tr key={i} className={row.K === a.K ? 'sel' : ''}>
+                      <td>${row.K.toFixed(row.K % 1 ? 1 : 0)}</td>
+                      <td>{row.delta.toFixed(3)}</td>
+                      <td>${row.prem.toFixed(2)}</td>
+                      <td>${Math.abs(row.theta).toFixed(4)}</td>
+                      <td>{row.dist.toFixed(1)}%</td>
+                      <td>{row.ann.toFixed(1)}%</td>
+                      <td style={{fontWeight: 600, color: row.sc >= 70 ? 'var(--grn)' : row.sc >= 45 ? 'var(--amb)' : 'var(--t3)'}}>{row.sc}</td>
+                      <td>
+                        <span className={`tg ${row.sc >= 70 ? 'tg-g' : row.sc >= 45 ? 'tg-a' : 'tg-r'}`}>
+                          {row.sc >= 70 ? 'sell' : row.sc >= 45 ? 'hold' : 'skip'}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
 </script>
 </body>
 </html>
