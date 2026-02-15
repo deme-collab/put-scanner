@@ -7,16 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#06090f;--bg2:#0c1119;--bg3:#111827;--bdr:#1b2540;--t1:#e8ecf4;--t2:#94a3b8;--t3:#5a6a85;--grn:#22c55e;--gA:rgba(34,197,94,.12);--red:#ef4444;--rA:rgba(239,68,68,.1);--amb:#eab308;--aA:rgba(234,179,8,.1);--blu:#3b82f6;--bA:rgba(59,130,246,.1);--pur:#a78bfa;--mono:'JetBrains Mono',monospace;--sans:'Outfit',system-ui,sans-serif}
+:root{--bg:#06090f;--bg2:#0c1119;--bg3:#111827;--bdr:#1b2540;--t1:#e8ecf4;--t2:#94a3b8;--t3:#5a6a85;--grn:#22c55e;--gA:rgba(34,197,94,.12);--red:#ef4444;--rA:rgba(239,68,68,.1);--amb:#eab308;--aA:rgba(234,179,8,.1);--blu:#3b82f6;--bA:rgba(59,130,246,.1);--pur:#a78bfa;--pA:rgba(167,139,250,.12);--mono:'JetBrains Mono',monospace;--sans:'Outfit',system-ui,sans-serif}
 body{background:var(--bg);color:var(--t1);font-family:var(--sans);min-height:100vh}
 body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(59,130,246,.04),transparent),radial-gradient(ellipse 60% 40% at 80% 110%,rgba(34,197,94,.03),transparent);pointer-events:none}
 #root{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:20px 16px 80px}
-
 .hdr{display:flex;align-items:center;gap:14px;padding:12px 0 20px;border-bottom:1px solid var(--bdr)}
 .hdr h1{font-family:var(--mono);font-size:1.15rem;font-weight:600;letter-spacing:-.3px}
 .hdr h1 b{color:var(--grn);font-weight:700}
 .hdr .tag0{font-family:var(--mono);font-size:.6rem;background:var(--bg3);border:1px solid var(--bdr);border-radius:4px;padding:3px 8px;color:var(--t3);letter-spacing:.8px;text-transform:uppercase}
-
+.hdr .live{background:var(--gA);border-color:rgba(34,197,94,.25);color:var(--grn)}
+.hdr .off{background:var(--rA);border-color:rgba(239,68,68,.2);color:var(--red)}
 .inp{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:20px;margin:20px 0}
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:end}
 .fld{flex:1;min-width:90px}
@@ -27,11 +27,11 @@ body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse
 .fld .u{font-family:var(--mono);font-size:.52rem;color:var(--t3);margin-top:2px;letter-spacing:.5px}
 .go{background:var(--blu);color:#fff;border:none;border-radius:6px;padding:9px 28px;font-family:var(--mono);font-size:.7rem;font-weight:600;cursor:pointer;letter-spacing:1px;text-transform:uppercase;transition:all .15s;white-space:nowrap;height:38px}
 .go:hover{background:#2563eb;transform:translateY(-1px)}
+.go:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .presets{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
 .pre{background:var(--bg);border:1px solid var(--bdr);border-radius:5px;padding:5px 12px;font-family:var(--mono);font-size:.68rem;color:var(--t2);cursor:pointer;transition:all .12s}
 .pre:hover{border-color:var(--blu);color:var(--t1)}
 .pre.neg{border-color:rgba(239,68,68,.2);color:var(--red)}.pre.neg:hover{border-color:var(--red)}
-
 @keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 .vrd{border-radius:10px;padding:18px 24px;margin-bottom:20px;display:flex;align-items:center;gap:18px;border:1px solid;animation:fi .3s ease}
 .vrd.s{background:linear-gradient(135deg,rgba(34,197,94,.06),rgba(34,197,94,.01));border-color:rgba(34,197,94,.2)}
@@ -39,28 +39,23 @@ body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse
 .vrd.x{background:linear-gradient(135deg,rgba(239,68,68,.06),rgba(239,68,68,.01));border-color:rgba(239,68,68,.2)}
 .vrd .ic{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .vrd.s .ic{background:var(--gA)}.vrd.h .ic{background:var(--aA)}.vrd.x .ic{background:var(--rA)}
-.vrd .tx{flex:1;min-width:0}
-.vrd .tx h2{font-family:var(--mono);font-size:.95rem;font-weight:600;margin-bottom:2px}
-.vrd .tx p{font-size:.78rem;color:var(--t2);line-height:1.5}
-.vrd .sc{text-align:center;flex-shrink:0}
-.vrd .sc .n{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1}
+.vrd .tx{flex:1;min-width:0}.vrd .tx h2{font-family:var(--mono);font-size:.95rem;font-weight:600;margin-bottom:2px}.vrd .tx p{font-size:.78rem;color:var(--t2);line-height:1.5}
+.vrd .sc{text-align:center;flex-shrink:0}.vrd .sc .n{font-family:var(--mono);font-size:2.2rem;font-weight:700;line-height:1}
 .vrd.s .sc .n{color:var(--grn)}.vrd.h .sc .n{color:var(--amb)}.vrd.x .sc .n{color:var(--red)}
 .vrd .sc .l{font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:1.2px;color:var(--t3)}
-
+.warn{background:var(--aA);border:1px solid rgba(234,179,8,.2);border-radius:8px;padding:10px 16px;margin-bottom:16px;font-family:var(--mono);font-size:.72rem;color:var(--amb);animation:fi .3s ease}
 .cg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px}
 @media(max-width:700px){.cg{grid-template-columns:1fr 1fr}}
 .cd{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:16px 18px;animation:fi .3s ease}
 .cd .ch{font-family:var(--mono);font-size:.55rem;font-weight:500;text-transform:uppercase;letter-spacing:1.4px;color:var(--t3);margin-bottom:10px}
 .cd .cv{font-family:var(--mono);font-size:1.45rem;font-weight:700;margin-bottom:3px}
 .cd .cs{font-size:.7rem;color:var(--t2);font-family:var(--mono);font-weight:300}
-
 .gs{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:20px}
 @media(max-width:600px){.gs{grid-template-columns:repeat(3,1fr)}}
 .gk{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:14px;text-align:center}
 .gk .sy{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--t3);margin-bottom:6px}
 .gk .gv{font-family:var(--mono);font-size:1.15rem;font-weight:600}
 .gk .gn{font-size:.55rem;color:var(--t3);font-family:var(--mono);margin-top:3px}
-
 .sb{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:20px;margin-bottom:20px}
 .sb h3{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--t3);margin-bottom:16px}
 .br{display:flex;align-items:center;margin-bottom:10px;gap:10px}
@@ -68,23 +63,28 @@ body::after{content:'';position:fixed;inset:0;background:radial-gradient(ellipse
 .br .tk{flex:1;height:6px;background:rgba(255,255,255,.03);border-radius:3px;overflow:hidden}
 .br .fl{height:100%;border-radius:3px;transition:width .5s ease}
 .br .pt{font-family:var(--mono);font-size:.7rem;font-weight:600;width:48px;text-align:right;flex-shrink:0}
-
-.sl{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:20px;overflow-x:auto}
+.sl{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:20px;overflow-x:auto;margin-bottom:20px}
 .sl h3{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--t3);margin-bottom:14px}
-table{width:100%;border-collapse:collapse;min-width:580px}
+table{width:100%;border-collapse:collapse;min-width:620px}
 th{font-family:var(--mono);font-size:.52rem;text-transform:uppercase;letter-spacing:1px;color:var(--t3);padding:7px 10px;text-align:right;border-bottom:1px solid var(--bdr);font-weight:500}
 th:first-child{text-align:left}
 td{font-family:var(--mono);font-size:.76rem;padding:9px 10px;text-align:right;border-bottom:1px solid rgba(255,255,255,.02);color:var(--t2)}
 td:first-child{text-align:left;color:var(--t1);font-weight:500}
 tr.sel{background:rgba(59,130,246,.07)}tr.sel td{color:var(--t1);font-weight:500}
+tr.sup{border-left:3px solid var(--grn)}
 tr:hover{background:rgba(255,255,255,.015)}
 .tg{display:inline-block;font-family:var(--mono);font-size:.52rem;font-weight:600;padding:2px 7px;border-radius:3px;text-transform:uppercase;letter-spacing:.3px}
-.tg-g{background:var(--gA);color:var(--grn)}.tg-a{background:var(--aA);color:var(--amb)}.tg-r{background:var(--rA);color:var(--red)}
-
+.tg-g{background:var(--gA);color:var(--grn)}.tg-a{background:var(--aA);color:var(--amb)}.tg-r{background:var(--rA);color:var(--red)}.tg-p{background:var(--pA);color:var(--pur)}
+.sup-strip{background:var(--bg2);border:1px solid var(--bdr);border-radius:10px;padding:16px 20px;margin-bottom:20px}
+.sup-strip h3{font-family:var(--mono);font-size:.55rem;text-transform:uppercase;letter-spacing:1.4px;color:var(--t3);margin-bottom:10px}
+.sup-pills{display:flex;gap:8px;flex-wrap:wrap}
+.sup-pill{font-family:var(--mono);font-size:.72rem;padding:5px 12px;border-radius:6px;border:1px solid}
+.sup-pill.major{background:var(--gA);border-color:rgba(34,197,94,.25);color:var(--grn)}
+.sup-pill.minor{background:rgba(255,255,255,.03);border-color:var(--bdr);color:var(--t2)}
 .emp{text-align:center;padding:70px 20px;color:var(--t3)}
 .emp .i{font-size:40px;margin-bottom:14px;opacity:.4}
 .emp h2{font-family:var(--mono);font-size:.93rem;font-weight:500;color:var(--t2);margin-bottom:6px}
-.emp p{font-size:.78rem;max-width:380px;margin:0 auto;line-height:1.6}
+.emp p{font-size:.78rem;max-width:420px;margin:0 auto;line-height:1.6}
 </style>
 </head>
 <body>
@@ -93,150 +93,114 @@ tr:hover{background:rgba(255,255,255,.015)}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
 <script type="text/babel">
-const { useState, useCallback } = React;
+const { useState, useCallback, useEffect, useRef } = React;
 
-/* ── BLACK-SCHOLES ENGINE ────────────────────────────────── */
-function NC(x) {
-  const a1=.254829592,a2=-.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=.3275911;
-  const s = x < 0 ? -1 : 1;
-  x = Math.abs(x) / Math.SQRT2;
-  const t = 1 / (1 + p * x);
-  const y = 1 - (((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-x*x);
-  return 0.5 * (1 + s * y);
-}
-function NP(x) { return Math.exp(-0.5*x*x) / Math.sqrt(2*Math.PI); }
-function D12(S,K,T,r,s) {
-  if (T<=0||s<=0) return [0,0];
-  const q=Math.sqrt(T), d1=(Math.log(S/K)+(r+0.5*s*s)*T)/(s*q);
-  return [d1, d1 - s*q];
-}
-function bsP(S,K,T,r,s) { if(T<=0||s<=0) return Math.max(K-S,0); const d=D12(S,K,T,r,s); return K*Math.exp(-r*T)*NC(-d[1]) - S*NC(-d[0]); }
-function bsD(S,K,T,r,s) { if(T<=0||s<=0) return S<K?-1:0; return NC(D12(S,K,T,r,s)[0])-1; }
-function bsG(S,K,T,r,s) { if(T<=0||s<=0||S<=0) return 0; return NP(D12(S,K,T,r,s)[0])/(S*s*Math.sqrt(T)); }
-function bsT(S,K,T,r,s) { if(T<=0||s<=0) return 0; const d=D12(S,K,T,r,s); return(-(S*NP(d[0])*s)/(2*Math.sqrt(T))+r*K*Math.exp(-r*T)*NC(-d[1]))/365; }
-function bsV(S,K,T,r,s) { if(T<=0||s<=0) return 0; return S*NP(D12(S,K,T,r,s)[0])*Math.sqrt(T)/100; }
-function calcGreeks(S,K,T,r,iv) { return { price:bsP(S,K,T,r,iv), delta:bsD(S,K,T,r,iv), gamma:bsG(S,K,T,r,iv), theta:bsT(S,K,T,r,iv), vega:bsV(S,K,T,r,iv) }; }
+const BRIDGE = "http://localhost:8000";
 
-/* ── SCORING ENGINE ──────────────────────────────────────── */
-function scoreContract(S, K, dte, iv, r, vix, chg) {
-  const T = dte / 365;
-  const g = calcGreeks(S, K, T, r, iv);
-  if (vix >= 35) return { sc: 0, g, ann: 0, bd: {} };
-  let sc = 0;
+/* ── BLACK-SCHOLES (fallback when bridge is offline) ─────── */
+function NC(x){const a1=.254829592,a2=-.284496736,a3=1.421413741,a4=-1.453152027,a5=1.061405429,p=.3275911,s=x<0?-1:1;x=Math.abs(x)/Math.SQRT2;const t=1/(1+p*x);return .5*(1+s*(1-(((((a5*t+a4)*t)+a3)*t+a2)*t+a1)*t*Math.exp(-x*x)))}
+function NP(x){return Math.exp(-.5*x*x)/Math.sqrt(2*Math.PI)}
+function D12(S,K,T,r,s){if(T<=0||s<=0)return[0,0];const q=Math.sqrt(T),d1=(Math.log(S/K)+(r+.5*s*s)*T)/(s*q);return[d1,d1-s*q]}
+function bsP(S,K,T,r,s){if(T<=0||s<=0)return Math.max(K-S,0);const d=D12(S,K,T,r,s);return K*Math.exp(-r*T)*NC(-d[1])-S*NC(-d[0])}
+function bsD(S,K,T,r,s){if(T<=0||s<=0)return S<K?-1:0;return NC(D12(S,K,T,r,s)[0])-1}
+function bsG(S,K,T,r,s){if(T<=0||s<=0||S<=0)return 0;return NP(D12(S,K,T,r,s)[0])/(S*s*Math.sqrt(T))}
+function bsT(S,K,T,r,s){if(T<=0||s<=0)return 0;const d=D12(S,K,T,r,s);return(-(S*NP(d[0])*s)/(2*Math.sqrt(T))+r*K*Math.exp(-r*T)*NC(-d[1]))/365}
+function bsV(S,K,T,r,s){if(T<=0||s<=0)return 0;return S*NP(D12(S,K,T,r,s)[0])*Math.sqrt(T)/100}
+function calcGreeks(S,K,T,r,iv){return{price:bsP(S,K,T,r,iv),delta:bsD(S,K,T,r,iv),gamma:bsG(S,K,T,r,iv),theta:bsT(S,K,T,r,iv),vega:bsV(S,K,T,r,iv)}}
 
-  const regime = vix<15?20 : vix<20?17 : vix<25?12 : vix<28?6 : 2;
-  sc += regime;
+function offlineScore(S,K,dte,iv,r,vix,chg){
+  const T=dte/365,g=calcGreeks(S,K,T,r,iv);if(vix>=35)return{sc:0,g,ann:0,bd:{}};let sc=0;
+  const rg=vix<15?20:vix<20?17:vix<25?12:vix<28?6:2;sc+=rg;
+  const dd=Math.abs(Math.abs(g.delta)-.2),dp=dd<.02?18:dd<.04?14:dd<.06?10:dd<.1?5:1;sc+=dp;
+  const ann=(g.price/K)*(365/Math.max(dte,1)),pp=(ann>=.08&&ann<=.15)?14:(ann>=.06&&ann<=.25)?10:ann<.06?3:ann<=.35?6:0;sc+=pp;
+  const dist=(S-K)/S,dsp=(dist>=.05&&dist<=.1)?14:(dist>.1&&dist<=.15)?10:(dist>=.03&&dist<.05)?6:dist<.03?0:5;sc+=dsp;
+  const td=Math.abs(g.theta),tp=td>.05?12:td>.03?9:td>.01?5:2;sc+=tp;
+  const di=chg<-2?16:chg<-1?13:chg<-.5?10:chg<0?5:chg<.5?2:chg<1.5?-2:-8;sc+=di;
+  const gp=dte<14?-6:dte<21?-3:0;sc+=gp;
+  return{sc:Math.max(Math.min(Math.round(sc),100),0),g,ann,bd:{regime:rg,delta:dp,premium:pp,distance:dsp,theta:tp,dip:Math.max(di,0),gamma:gp,support:0}}}
 
-  const dd = Math.abs(Math.abs(g.delta) - 0.2);
-  const delta = dd<.02?18 : dd<.04?14 : dd<.06?10 : dd<.1?5 : 1;
-  sc += delta;
-
-  const ann = (g.price / K) * (365 / Math.max(dte, 1));
-  const premium = (ann>=.08 && ann<=.15)?14 : (ann>=.06 && ann<=.25)?10 : ann<.06?3 : ann<=.35?6 : 0;
-  sc += premium;
-
-  const dist = (S - K) / S;
-  const distance = (dist>=.05 && dist<=.1)?14 : (dist>.1 && dist<=.15)?10 : (dist>=.03 && dist<.05)?6 : dist<.03?0 : 5;
-  sc += distance;
-
-  const td = Math.abs(g.theta);
-  const theta = td>.05?12 : td>.03?9 : td>.01?5 : 2;
-  sc += theta;
-
-  const rawDip = chg<-2?16 : chg<-1?13 : chg<-.5?10 : chg<0?5 : chg<.5?2 : chg<1.5?-2 : -8;
-  sc += rawDip;
-
-  const gamma = dte<14?-6 : dte<21?-3 : 0;
-  sc += gamma;
-
-  return {
-    sc: Math.max(Math.min(Math.round(sc), 100), 0),
-    g, ann,
-    bd: { regime, delta, premium, distance, theta, dip: Math.max(rawDip, 0), gamma }
-  };
-}
-
-/* ── STRIKE LADDER ───────────────────────────────────────── */
-function buildLadder(S, dte, iv, r, vix, chg) {
-  const rows = [];
-  const step = S>400?5 : S>100?2.5 : S>50?1 : 0.5;
-  const seen = {};
-  for (let p = 0.02; p <= 0.16; p += 0.005) {
-    const K = Math.round(S * (1 - p) / step) * step;
-    if (K <= 0 || seen[K]) continue;
-    seen[K] = true;
-    const T = dte / 365;
-    const g = calcGreeks(S, K, T, r, iv);
-    if (Math.abs(g.delta) < 0.05 || Math.abs(g.delta) > 0.45) continue;
-    const res = scoreContract(S, K, dte, iv, r, vix, chg);
-    rows.push({
-      K, delta: g.delta, gamma: g.gamma, theta: g.theta, vega: g.vega,
-      prem: g.price, dist: (S-K)/S*100, ann: (g.price/K)*(365/dte)*100, sc: res.sc
-    });
-  }
-  return rows.sort((a, b) => b.sc - a.sc);
-}
-
-/* ── HELPER COMPONENTS ───────────────────────────────────── */
-function MetricCard({ hd, val, sub, clr }) {
-  return (
-    <div className="cd">
-      <div className="ch">{hd}</div>
-      <div className="cv" style={clr ? {color: clr} : undefined}>{val}</div>
-      <div className="cs">{sub}</div>
-    </div>
-  );
-}
-
-function GreekCard({ sym, val, note, clr }) {
-  return (
-    <div className="gk">
-      <div className="sy">{sym}</div>
-      <div className="gv" style={clr ? {color: clr} : undefined}>{val}</div>
-      <div className="gn">{note}</div>
-    </div>
-  );
-}
-
-function ScoreBar({ label, pts, max, color }) {
-  return (
-    <div className="br">
-      <div className="lb">{label}</div>
-      <div className="tk">
-        <div className="fl" style={{ width: `${Math.max(pts/max*100, 0)}%`, background: color, opacity: 0.8 }} />
-      </div>
-      <div className="pt" style={{ color: pts < 0 ? 'var(--red)' : color }}>
-        {pts > 0 ? '+' : ''}{pts}/{max}
-      </div>
-    </div>
-  );
-}
+function offlineLadder(S,dte,iv,r,vix,chg){
+  const rows=[],step=S>400?5:S>100?2.5:S>50?1:.5,seen={};
+  for(let p=.02;p<=.16;p+=.005){const K=Math.round(S*(1-p)/step)*step;if(K<=0||seen[K])continue;seen[K]=1;
+    const T=dte/365,g=calcGreeks(S,K,T,r,iv);if(Math.abs(g.delta)<.05||Math.abs(g.delta)>.45)continue;
+    const res=offlineScore(S,K,dte,iv,r,vix,chg);
+    rows.push({strike:K,delta:g.delta,gamma:g.gamma,theta:g.theta,vega:g.vega,prem:g.price,dist:(S-K)/S*100,ann:(g.price/K)*(365/dte)*100,sc:res.sc,iv:iv*100,on_support:false,support_info:""})}
+  return rows.sort((a,b)=>b.sc-a.sc)}
 
 /* ── MAIN APP ────────────────────────────────────────────── */
 function App() {
-  const [fields, setFields] = useState({
-    ticker: '', price: '', strike: '', iv: '', dte: '35', vix: '18', chg: '-0.5'
-  });
+  const [fields, setFields] = useState({ticker:'',price:'',strike:'',iv:'',dte:'35',vix:'18',chg:'-0.5'});
   const [result, setResult] = useState(null);
+  const [bridgeUp, setBridgeUp] = useState(null); // null=checking, true/false
+  const [loading, setLoading] = useState(false);
 
-  const set = (k, v) => setFields(prev => ({ ...prev, [k]: v }));
+  // Check bridge on mount
+  useEffect(() => {
+    fetch(BRIDGE + "/health", {signal: AbortSignal.timeout(2000)})
+      .then(r => r.json())
+      .then(d => setBridgeUp(d.status === "ok"))
+      .catch(() => setBridgeUp(false));
+  }, []);
 
-  const load = (t, p, k, i, d, v, c) => {
-    setFields({ ticker: t, price: p, strike: k, iv: i, dte: d, vix: v, chg: c });
-  };
+  const set = (k, v) => setFields(prev => ({...prev, [k]: v}));
+  const load = (t,p,k,i,d,v,c) => setFields({ticker:t,price:p,strike:k,iv:i,dte:d,vix:v,chg:c});
+
+  // Live scan via bridge
+  const scanLive = useCallback(async () => {
+    if (!fields.ticker) return;
+    setLoading(true);
+    try {
+      const res = await fetch(`${BRIDGE}/scan/${fields.ticker}?dte=${fields.dte || 35}`);
+      const data = await res.json();
+      if (data.error) { alert("Bridge error: " + data.error); setLoading(false); return; }
+
+      const rec = data.recommended;
+      if (!rec) { alert("No puts found for " + data.ticker); setLoading(false); return; }
+
+      // Build result in same format as offline
+      const contracts = data.contracts.map(c => ({
+        strike: c.strike, delta: c.delta, gamma: c.gamma, theta: c.theta, vega: c.vega,
+        prem: c.bs_price, dist: c.distance, ann: c.ann_return, sc: c.score,
+        iv: c.iv, bid: c.bid, ask: c.ask, last: c.last, volume: c.volume, oi: c.oi,
+        on_support: c.on_support, support_info: c.support_info,
+      }));
+
+      setResult({
+        S: data.price, K: rec.strike, IV: rec.iv / 100, DTE: data.dte,
+        VIX: data.vix, CHG: data.daily_change, r: 0.045,
+        tk: data.ticker, sc: rec.score,
+        g: rec, ann: rec.ann_return / 100,
+        bd: rec.breakdown, ld: contracts,
+        supports: data.supports || [], resistances: data.resistances || [],
+        warnings: data.warnings || [], expiration: data.expiration, live: true,
+      });
+      // Sync fields
+      setFields(prev => ({...prev, price: ''+data.price, strike: ''+rec.strike, iv: ''+rec.iv, dte: ''+data.dte, vix: ''+data.vix, chg: ''+data.daily_change}));
+    } catch (e) {
+      console.error(e);
+      alert("Bridge connection failed. Is bridge.py running?");
+    }
+    setLoading(false);
+  }, [fields.ticker, fields.dte]);
+
+  // Offline scan (manual input)
+  const scanOffline = useCallback(() => {
+    const S=+fields.price, K=+fields.strike, IV=+fields.iv/100, DTE=+fields.dte, VIX=+fields.vix, CHG=+fields.chg, r=0.045;
+    if (!S||!K||!IV||!DTE) return;
+    const res = offlineScore(S,K,DTE,IV,r,VIX,CHG);
+    const ld = offlineLadder(S,DTE,IV,r,VIX,CHG);
+    setResult({S,K,IV,DTE,VIX,CHG,r,tk:fields.ticker.toUpperCase()||'—',sc:res.sc,
+      g:{price:res.g.price,delta:res.g.delta,gamma:res.g.gamma,theta:res.g.theta,vega:res.g.vega},
+      ann:res.ann,bd:res.bd,ld,supports:[],resistances:[],warnings:[],live:false});
+  }, [fields]);
 
   const run = useCallback(() => {
-    const S = +fields.price, K = +fields.strike, IV = +fields.iv / 100;
-    const DTE = +fields.dte, VIX = +fields.vix, CHG = +fields.chg, r = 0.045;
-    if (!S || !K || !IV || !DTE) return;
-    const res = scoreContract(S, K, DTE, IV, r, VIX, CHG);
-    const ld = buildLadder(S, DTE, IV, r, VIX, CHG);
-    setResult({
-      S, K, IV, DTE, VIX, CHG, r,
-      tk: fields.ticker.toUpperCase() || '—',
-      ...res, ld
-    });
-  }, [fields]);
+    if (bridgeUp && fields.ticker && !fields.price) {
+      scanLive();
+    } else {
+      scanOffline();
+    }
+  }, [bridgeUp, fields, scanLive, scanOffline]);
 
   const kd = (e) => { if (e.key === 'Enter') run(); };
 
@@ -245,172 +209,154 @@ function App() {
 
   return (
     <div>
-      {/* Header */}
       <div className="hdr">
         <h1><b>$</b> Put Scanner</h1>
         <span className="tag0">quiet powerhouse</span>
+        {bridgeUp === true && <span className="tag0 live">LIVE</span>}
+        {bridgeUp === false && <span className="tag0 off">OFFLINE</span>}
       </div>
 
-      {/* Input Panel */}
       <div className="inp">
         <div className="row">
-          <div className="fld" style={{ maxWidth: 110 }}>
+          <div className="fld" style={{maxWidth:130}}>
             <label>Ticker</label>
-            <input value={fields.ticker} placeholder="AAPL" onChange={e => set('ticker', e.target.value)} onKeyDown={kd} />
+            <input value={fields.ticker} placeholder="AAPL" onChange={e=>set('ticker',e.target.value)} onKeyDown={kd} />
+            {bridgeUp && <div className="u" style={{color:'var(--grn)'}}>auto-fetch</div>}
           </div>
-          <div className="fld">
-            <label>Price</label>
-            <input type="number" step="any" value={fields.price} placeholder="235.50" onChange={e => set('price', e.target.value)} onKeyDown={kd} />
-            <div className="u">$</div>
-          </div>
-          <div className="fld">
-            <label>Strike</label>
-            <input type="number" step="any" value={fields.strike} placeholder="225" onChange={e => set('strike', e.target.value)} onKeyDown={kd} />
-            <div className="u">$</div>
-          </div>
-          <div className="fld">
-            <label>IV</label>
-            <input type="number" step="any" value={fields.iv} placeholder="22" onChange={e => set('iv', e.target.value)} onKeyDown={kd} />
-            <div className="u">%</div>
-          </div>
-          <div className="fld">
-            <label>DTE</label>
-            <input type="number" value={fields.dte} placeholder="35" onChange={e => set('dte', e.target.value)} onKeyDown={kd} />
-            <div className="u">days</div>
-          </div>
-          <div className="fld">
-            <label>VIX</label>
-            <input type="number" step="any" value={fields.vix} placeholder="18" onChange={e => set('vix', e.target.value)} onKeyDown={kd} />
-            <div className="u">level</div>
-          </div>
-          <div className="fld">
-            <label>Day Chg</label>
-            <input type="number" step="any" value={fields.chg} placeholder="-0.5" onChange={e => set('chg', e.target.value)} onKeyDown={kd} />
-            <div className="u">%</div>
-          </div>
-          <button className="go" onClick={run}>Scan</button>
+          <div className="fld"><label>Price</label><input type="number" step="any" value={fields.price} placeholder={bridgeUp?"auto":"235.50"} onChange={e=>set('price',e.target.value)} onKeyDown={kd}/><div className="u">$</div></div>
+          <div className="fld"><label>Strike</label><input type="number" step="any" value={fields.strike} placeholder={bridgeUp?"auto":"225"} onChange={e=>set('strike',e.target.value)} onKeyDown={kd}/><div className="u">$</div></div>
+          <div className="fld"><label>IV</label><input type="number" step="any" value={fields.iv} placeholder={bridgeUp?"auto":"22"} onChange={e=>set('iv',e.target.value)} onKeyDown={kd}/><div className="u">%</div></div>
+          <div className="fld"><label>DTE</label><input type="number" value={fields.dte} placeholder="35" onChange={e=>set('dte',e.target.value)} onKeyDown={kd}/><div className="u">days</div></div>
+          <div className="fld"><label>VIX</label><input type="number" step="any" value={fields.vix} placeholder={bridgeUp?"auto":"18"} onChange={e=>set('vix',e.target.value)} onKeyDown={kd}/><div className="u">level</div></div>
+          <div className="fld"><label>Day Chg</label><input type="number" step="any" value={fields.chg} placeholder={bridgeUp?"auto":"-0.5"} onChange={e=>set('chg',e.target.value)} onKeyDown={kd}/><div className="u">%</div></div>
+          <button className="go" onClick={run} disabled={loading}>{loading ? 'Loading...' : bridgeUp && fields.ticker && !fields.price ? 'Fetch + Scan' : 'Scan'}</button>
         </div>
         <div className="presets">
-          <button className="pre" onClick={() => load('AAPL','235','225','22','35','18','-0.7')}>AAPL</button>
-          <button className="pre" onClick={() => load('MSFT','415','395','20','35','18','-0.5')}>MSFT</button>
-          <button className="pre" onClick={() => load('GOOGL','182','172','26','35','18','-1.2')}>GOOGL</button>
-          <button className="pre" onClick={() => load('SPY','605','585','14','42','18','-0.3')}>SPY</button>
-          <button className="pre" onClick={() => load('NVDA','130','120','38','35','22','2.1')}>NVDA</button>
-          <button className="pre neg" onClick={() => load('TSLA','340','300','48','35','32','-4.5')}>TSLA crash</button>
+          {bridgeUp
+            ? ['AAPL','MSFT','GOOGL','SPY','NVDA','MU','AMD','TSLA'].map(t =>
+                <button key={t} className="pre" onClick={()=>{setFields({ticker:t,price:'',strike:'',iv:'',dte:'35',vix:'',chg:''});setTimeout(()=>document.querySelector('.go').click(),50)}}>{t}</button>)
+            : <>
+                <button className="pre" onClick={()=>load('AAPL','235','225','22','35','18','-0.7')}>AAPL</button>
+                <button className="pre" onClick={()=>load('MSFT','415','395','20','35','18','-0.5')}>MSFT</button>
+                <button className="pre" onClick={()=>load('GOOGL','182','172','26','35','18','-1.2')}>GOOGL</button>
+                <button className="pre" onClick={()=>load('SPY','605','585','14','42','18','-0.3')}>SPY</button>
+                <button className="pre" onClick={()=>load('NVDA','130','120','38','35','22','2.1')}>NVDA</button>
+                <button className="pre neg" onClick={()=>load('TSLA','340','300','48','35','32','-4.5')}>TSLA crash</button>
+              </>
+          }
         </div>
       </div>
 
-      {/* Empty State */}
-      {!a && (
-        <div className="emp">
-          <div className="i">⚡</div>
-          <h2>Punch in a contract</h2>
-          <p>Enter the stock price, strike, and IV from your broker screen. Hit Enter or Scan.</p>
+      {!a && <div className="emp">
+        <div className="i">⚡</div>
+        <h2>{bridgeUp ? 'Type a ticker and hit Enter' : 'Punch in a contract'}</h2>
+        <p>{bridgeUp
+          ? 'Bridge is connected — just enter a ticker symbol. Price, IV, VIX, and the full options chain will be fetched automatically with K-means support detection.'
+          : 'Enter the stock price, strike, and IV from your broker screen. Or run bridge.py for auto-fetch with K-means support levels.'}</p>
+      </div>}
+
+      {a && <div>
+        {/* Warnings */}
+        {a.warnings && a.warnings.map((w,i) => <div className="warn" key={i}>⚠️ {w.msg}</div>)}
+
+        {/* Verdict */}
+        <div className={`vrd ${v}`}>
+          <div className="ic">{v==='s'?'✅':v==='h'?'⏳':'🚫'}</div>
+          <div className="tx">
+            <h2>{v==='s'?`SELL ${a.tk} $${a.K} PUT`:v==='h'?`HOLD — ${a.tk} $${a.K} needs better setup`:`SKIP — ${a.tk} $${a.K} not worth it`}</h2>
+            <p>{v==='s'
+              ?`${a.DTE}d DTE · δ${a.g.delta.toFixed(3)} · $${a.g.price.toFixed(2)} prem · ${(a.ann*100).toFixed(1)}% ann${a.CHG<-.5?' · dip entry ✨':''}${a.bd.support>0?' · on K-means support 🧱':''}`
+              :v==='h'?`Score ${a.sc}/100 borderline.${a.CHG>.5?' Wait for pullback.':''}`:
+              `Score ${a.sc}/100.${a.VIX>=28?' VIX elevated.':''}${a.ann<.06?' Premium thin.':''}`}
+              {a.live && a.expiration && <span style={{color:'var(--t3)'}}> · exp {a.expiration}</span>}
+            </p>
+          </div>
+          <div className="sc"><div className="n">{a.sc}</div><div className="l">score</div></div>
         </div>
-      )}
 
-      {/* Results */}
-      {a && (
-        <div>
-          {/* Verdict Banner */}
-          <div className={`vrd ${v}`}>
-            <div className="ic">{v === 's' ? '✅' : v === 'h' ? '⏳' : '🚫'}</div>
-            <div className="tx">
-              <h2>
-                {v === 's' ? `SELL ${a.tk} $${a.K} PUT` :
-                 v === 'h' ? `HOLD — ${a.tk} $${a.K} needs better setup` :
-                 `SKIP — ${a.tk} $${a.K} not worth it`}
-              </h2>
-              <p>
-                {v === 's'
-                  ? `${a.DTE}d DTE · δ${a.g.delta.toFixed(3)} · $${a.g.price.toFixed(2)} prem · ${(a.ann*100).toFixed(1)}% ann${a.CHG < -0.5 ? ' · dip entry ✨' : ''}`
-                  : v === 'h'
-                  ? `Score ${a.sc}/100 borderline.${a.CHG > 0.5 ? ' Wait for pullback.' : ''}${Math.abs(a.g.delta) < 0.12 ? ' Strike too far OTM.' : ''}`
-                  : `Score ${a.sc}/100.${a.VIX >= 28 ? ' VIX elevated.' : ''}${a.ann < 0.06 ? ' Premium thin.' : ''}`}
-              </p>
-            </div>
-            <div className="sc">
-              <div className="n">{a.sc}</div>
-              <div className="l">score</div>
+        {/* K-means Support Levels */}
+        {a.supports && a.supports.length > 0 && (
+          <div className="sup-strip">
+            <h3>K-Means Support Levels</h3>
+            <div className="sup-pills">
+              {a.supports.map((s,i) => (
+                <span key={i} className={`sup-pill ${s.type || (s.strength >= 6 ? 'major' : 'minor')}`}>
+                  ${s.price.toFixed(2)} <span style={{opacity:.6,fontSize:'.6rem'}}>({s.touches}x · {s.timeframe})</span>
+                </span>
+              ))}
             </div>
           </div>
+        )}
 
-          {/* Metric Cards */}
-          <div className="cg">
-            <MetricCard hd="Premium" val={`$${a.g.price.toFixed(2)}`} sub={`$${(a.g.price*100).toFixed(0)} / contract`} clr={a.g.price > 1 ? 'var(--grn)' : null} />
-            <MetricCard hd="Ann. Return" val={`${(a.ann*100).toFixed(1)}%`} sub={`on $${(a.K*100).toLocaleString()} secured`} clr={a.ann >= .08 ? 'var(--grn)' : a.ann >= .05 ? 'var(--amb)' : 'var(--t3)'} />
-            <MetricCard hd="Distance" val={`${((a.S-a.K)/a.S*100).toFixed(1)}% OTM`} sub={`break-even $${(a.K - a.g.price).toFixed(2)}`} />
-            <MetricCard hd="θ Decay" val={`$${Math.abs(a.g.theta).toFixed(4)}/day`} sub={`$${(Math.abs(a.g.theta)*100).toFixed(2)}/day/ct`} clr="var(--grn)" />
-            <MetricCard hd="Cash Req." val={`$${(a.K*100).toLocaleString()}`} sub="to secure 1 contract" />
-            <MetricCard
-              hd="Day Change"
-              val={`${a.CHG > 0 ? '+' : ''}${a.CHG.toFixed(2)}%`}
-              sub={a.CHG < -1 ? 'strong dip — prime entry' : a.CHG < -0.3 ? 'red — favorable' : a.CHG < 0.3 ? 'flat' : a.CHG < 1.5 ? 'green — weaker' : 'ripping — worst'}
-              clr={a.CHG < 0 ? 'var(--red)' : 'var(--grn)'}
-            />
-          </div>
+        {/* Metric Cards */}
+        <div className="cg">
+          <div className="cd"><div className="ch">Premium</div><div className="cv" style={{color:a.g.price>1?'var(--grn)':undefined}}>${a.g.price.toFixed(2)}</div><div className="cs">${(a.g.price*100).toFixed(0)} / contract</div></div>
+          <div className="cd"><div className="ch">Ann. Return</div><div className="cv" style={{color:a.ann>=.08?'var(--grn)':a.ann>=.05?'var(--amb)':'var(--t3)'}}>{(a.ann*100).toFixed(1)}%</div><div className="cs">on ${(a.K*100).toLocaleString()} secured</div></div>
+          <div className="cd"><div className="ch">Distance</div><div className="cv">{((a.S-a.K)/a.S*100).toFixed(1)}% OTM</div><div className="cs">break-even ${(a.K-a.g.price).toFixed(2)}</div></div>
+          <div className="cd"><div className="ch">θ Decay</div><div className="cv" style={{color:'var(--grn)'}}>${Math.abs(a.g.theta).toFixed(4)}/day</div><div className="cs">${(Math.abs(a.g.theta)*100).toFixed(2)}/day/ct</div></div>
+          <div className="cd"><div className="ch">Cash Req.</div><div className="cv">${(a.K*100).toLocaleString()}</div><div className="cs">to secure 1 contract</div></div>
+          <div className="cd"><div className="ch">Day Change</div><div className="cv" style={{color:a.CHG<0?'var(--red)':'var(--grn)'}}>{a.CHG>0?'+':''}{a.CHG.toFixed(2)}%</div><div className="cs">{a.CHG<-1?'strong dip — prime entry':a.CHG<-.3?'red — favorable':a.CHG<.3?'flat':a.CHG<1.5?'green — weaker':'ripping — worst'}</div></div>
+        </div>
 
-          {/* Greeks */}
-          <div className="gs">
-            <GreekCard sym="Delta (Δ)" val={a.g.delta.toFixed(4)} note={`≈${Math.round(Math.abs(a.g.delta)*100)}% assign`} clr="var(--blu)" />
-            <GreekCard sym="Gamma (Γ)" val={a.g.gamma.toFixed(5)} note={a.g.gamma > .04 ? 'high — danger' : a.g.gamma > .02 ? 'moderate' : 'low — stable'} clr={a.g.gamma > .03 ? 'var(--amb)' : null} />
-            <GreekCard sym="Theta (Θ)" val={a.g.theta.toFixed(4)} note="per share/day" clr="var(--grn)" />
-            <GreekCard sym="Vega (ν)" val={a.g.vega.toFixed(4)} note="per 1% IV move" />
-            <GreekCard sym="IV" val={`${(a.IV*100).toFixed(1)}%`} note={a.IV > .4 ? 'elevated' : a.IV > .25 ? 'above avg' : 'normal'} clr={a.IV > .35 ? 'var(--amb)' : null} />
-          </div>
+        {/* Greeks */}
+        <div className="gs">
+          <div className="gk"><div className="sy">Delta (Δ)</div><div className="gv" style={{color:'var(--blu)'}}>{a.g.delta.toFixed(4)}</div><div className="gn">≈{Math.round(Math.abs(a.g.delta)*100)}% assign</div></div>
+          <div className="gk"><div className="sy">Gamma (Γ)</div><div className="gv" style={{color:a.g.gamma>.03?'var(--amb)':undefined}}>{a.g.gamma.toFixed(5)}</div><div className="gn">{a.g.gamma>.04?'high — danger':a.g.gamma>.02?'moderate':'low — stable'}</div></div>
+          <div className="gk"><div className="sy">Theta (Θ)</div><div className="gv" style={{color:'var(--grn)'}}>{a.g.theta.toFixed(4)}</div><div className="gn">per share/day</div></div>
+          <div className="gk"><div className="sy">Vega (ν)</div><div className="gv">{a.g.vega.toFixed(4)}</div><div className="gn">per 1% IV move</div></div>
+          <div className="gk"><div className="sy">IV</div><div className="gv" style={{color:a.IV>.35?'var(--amb)':undefined}}>{(a.IV*100).toFixed(1)}%</div><div className="gn">{a.IV>.4?'elevated':a.IV>.25?'above avg':'normal'}</div></div>
+        </div>
 
-          {/* Score Breakdown */}
-          <div className="sb">
-            <h3>Score Breakdown</h3>
-            <ScoreBar label="Regime" pts={a.bd.regime} max={20} color="var(--blu)" />
-            <ScoreBar label="Delta" pts={a.bd.delta} max={18} color="var(--pur)" />
-            <ScoreBar label="Dip Entry" pts={a.bd.dip} max={16} color="var(--grn)" />
-            <ScoreBar label="Premium" pts={a.bd.premium} max={14} color="var(--amb)" />
-            <ScoreBar label="Distance" pts={a.bd.distance} max={14} color="var(--blu)" />
-            <ScoreBar label="Theta" pts={a.bd.theta} max={12} color="var(--grn)" />
-            {a.bd.gamma < 0 && <ScoreBar label="Gamma Risk" pts={a.bd.gamma} max={6} color="var(--red)" />}
-          </div>
+        {/* Score Breakdown */}
+        <div className="sb">
+          <h3>Score Breakdown</h3>
+          {[
+            {l:"Regime",p:a.bd.regime,m:20,c:'var(--blu)'},
+            {l:"Delta",p:a.bd.delta,m:18,c:'var(--pur)'},
+            {l:"Dip Entry",p:a.bd.dip,m:16,c:'var(--grn)'},
+            {l:"Premium",p:a.bd.premium,m:14,c:'var(--amb)'},
+            {l:"Distance",p:a.bd.distance,m:14,c:'var(--blu)'},
+            {l:"Theta",p:a.bd.theta,m:12,c:'var(--grn)'},
+            ...(a.bd.support > 0 ? [{l:"K-Means Support",p:a.bd.support,m:15,c:'var(--pur)'}] : []),
+            ...(a.bd.gamma < 0 ? [{l:"Gamma Risk",p:a.bd.gamma,m:6,c:'var(--red)'}] : []),
+          ].map((item,i) => (
+            <div className="br" key={i}>
+              <div className="lb">{item.l}</div>
+              <div className="tk"><div className="fl" style={{width:`${Math.max(item.p/item.m*100,0)}%`,background:item.c,opacity:.8}}/></div>
+              <div className="pt" style={{color:item.p<0?'var(--red)':item.c}}>{item.p>0?'+':''}{item.p}/{item.m}</div>
+            </div>
+          ))}
+        </div>
 
-          {/* Strike Ladder */}
-          {a.ld.length > 0 && (
-            <div className="sl">
-              <h3>Strike Ladder — {a.tk} puts, {a.DTE}d</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th style={{textAlign:'left'}}>Strike</th>
-                    <th>Delta</th>
-                    <th>Premium</th>
-                    <th>θ/Day</th>
-                    <th>Dist %</th>
-                    <th>Ann Ret</th>
-                    <th>Score</th>
-                    <th></th>
+        {/* Strike Ladder */}
+        {a.ld && a.ld.length > 0 && (
+          <div className="sl">
+            <h3>Strike Ladder — {a.tk} puts{a.live ? `, exp ${a.expiration}` : `, ${a.DTE}d`}</h3>
+            <table>
+              <thead><tr>
+                <th style={{textAlign:'left'}}>Strike</th><th>Delta</th><th>Premium</th><th>θ/Day</th><th>Dist %</th><th>Ann Ret</th><th>Score</th><th></th>
+              </tr></thead>
+              <tbody>
+                {a.ld.slice(0,16).map((row,i) => (
+                  <tr key={i} className={`${row.strike===a.K?'sel':''} ${row.on_support?'sup':''}`}>
+                    <td>
+                      ${row.strike.toFixed(row.strike%1?1:0)}
+                      {row.on_support && <span className="tg tg-p" style={{marginLeft:6,fontSize:'.48rem'}}>SUP</span>}
+                    </td>
+                    <td>{row.delta.toFixed(3)}</td>
+                    <td>${(row.prem||row.last||0).toFixed(2)}</td>
+                    <td>${Math.abs(row.theta).toFixed(4)}</td>
+                    <td>{row.dist.toFixed(1)}%</td>
+                    <td>{row.ann.toFixed(1)}%</td>
+                    <td style={{fontWeight:600,color:row.sc>=70?'var(--grn)':row.sc>=45?'var(--amb)':'var(--t3)'}}>{row.sc}</td>
+                    <td><span className={`tg ${row.sc>=70?'tg-g':row.sc>=45?'tg-a':'tg-r'}`}>{row.sc>=70?'sell':row.sc>=45?'hold':'skip'}</span></td>
                   </tr>
-                </thead>
-                <tbody>
-                  {a.ld.slice(0, 14).map((row, i) => (
-                    <tr key={i} className={row.K === a.K ? 'sel' : ''}>
-                      <td>${row.K.toFixed(row.K % 1 ? 1 : 0)}</td>
-                      <td>{row.delta.toFixed(3)}</td>
-                      <td>${row.prem.toFixed(2)}</td>
-                      <td>${Math.abs(row.theta).toFixed(4)}</td>
-                      <td>{row.dist.toFixed(1)}%</td>
-                      <td>{row.ann.toFixed(1)}%</td>
-                      <td style={{fontWeight: 600, color: row.sc >= 70 ? 'var(--grn)' : row.sc >= 45 ? 'var(--amb)' : 'var(--t3)'}}>{row.sc}</td>
-                      <td>
-                        <span className={`tg ${row.sc >= 70 ? 'tg-g' : row.sc >= 45 ? 'tg-a' : 'tg-r'}`}>
-                          {row.sc >= 70 ? 'sell' : row.sc >= 45 ? 'hold' : 'skip'}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          )}
-        </div>
-      )}
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </div>}
     </div>
   );
 }
